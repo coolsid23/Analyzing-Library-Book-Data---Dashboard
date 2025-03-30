@@ -62,6 +62,7 @@ The dashboard contains multiple visualizations across three pages:
 
 ## Screenshots
 
+[Include 2-3 screenshots of your dashboard here]
 
 ## Tools and Technologies
 - **Power BI Desktop**: For dashboard development
