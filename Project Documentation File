@@ -1,0 +1,70 @@
+# Library Book Analysis - Implementation Documentation
+
+## Data Transformation Process
+
+### Initial Data Assessment
+- Checked for duplicate entries based on BookID
+- Verified data types for each column
+- Identified missing values or anomalies in the dataset
+
+### Data Cleaning Steps
+1. Removed duplicate BookID entries
+2. Applied filter to include only books published after 2000
+3. Created calculated column for borrowing frequency using the DAX expression:
+   ```
+   BorrowingFrequency = [TimesBorrowed] / (YEAR(TODAY()) - [PublishedYear] + 1)
+   ```
+
+### Additional Data Preparation
+- Created hierarchies for time-based analysis
+- Added conditional formatting for visual clarity
+
+## Visualization Design Decisions
+
+### Bar Chart (Top 10 Authors)
+- Used a horizontal bar chart for better readability of author names
+- Applied sorting by total borrowing count in descending order
+- Used color intensity to highlight top performers
+
+### Pie Chart (Genre Distribution)
+- Limited color palette to maintain visual clarity
+- Added data labels showing both count and percentage
+- Applied hover tooltips with additional context
+
+### Line Chart (Publication Trends)
+- Added trendline to highlight overall direction
+- Used markers at data points for clarity
+- Included year-to-year comparison for growth analysis
+
+### Scatter Plot (Ratings vs. Borrowing)
+- Applied visual cues to identify outliers
+- Used tooltips to display book titles on hover
+- Added reference lines for average rating and borrowing frequency
+
+## Interactive Features Implementation
+- Created bidirectional filtering between visualizations
+- Implemented bookmarks for saving specific views
+- Added drill-through functionality for deeper analysis
+
+## Performance Optimization
+- Used appropriate aggregation methods
+- Limited visuals per page to maintain loading speed
+- Optimized DAX measures for efficiency
+
+## Design Principles Applied
+- Consistent color scheme across all visuals
+- Clear labeling and titles for all elements
+- White space utilization for visual separation
+- Mobile-friendly layout considerations
+
+## Challenges and Solutions
+- **Challenge**: Handling books with very recent publication years that skewed borrowing frequency
+- **Solution**: Added conditional logic to account for minimum time period
+
+- **Challenge**: Visualizing genre distribution with many small categories
+- **Solution**: Grouped smaller genres into "Other" category for clearer visualization
+
+## Testing Process
+- Verified calculations against sample data
+- Tested cross-filtering functionality
+- Validated report performance across different devices
